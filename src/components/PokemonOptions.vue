@@ -2,7 +2,10 @@
     <div class="options-container">
         <ul>
             <li v-for="pokemon in pokemons" :key="pokemon.id">
-                <button  @click="$emit('selection', pokemon.id)">
+                <button
+                    :disabled="disbaleButtons(pokemon.id)"
+                    @click="$emit('selection', pokemon.id)"
+                >
                     {{ pokemon.name }}
                 </button>
             </li>
@@ -16,6 +19,23 @@ export default {
         pokemons: {
             type: Array,
             required: true,
+        },
+        pokemonId: {
+            type: Number,
+            required: true,
+        },
+    },
+    methods: {
+        disbaleButtons(id) {
+            if (this.pokemonId > 0) {
+                if (id !== this.pokemonId) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         },
     },
 };
@@ -42,7 +62,7 @@ li {
 li:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
-li button{
+li button {
     background: none;
     width: 100%;
     height: 100%;
