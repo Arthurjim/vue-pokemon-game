@@ -11,7 +11,7 @@
 
         <template v-if="showAnswer">
             <h2 class="message">{{ message }}</h2>
-            <button @click="newGame">Nuevo Juego</button>
+            <button class="btn_again" @click="newGame">Nuevo Juego</button>
         </template>
     </div>
 </template>
@@ -99,6 +99,19 @@ export default {
     padding: 25px;
     text-align: center;
     width: 300px;
+
+}
+.btn_again{
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    background: red;
+    margin-top: 10px;
+    font-family: "Supermercado One", cursive;
+    border: none;
+}
+.btn_again:hover{
+    background: #ff1919c4;
 
 }
 </style>

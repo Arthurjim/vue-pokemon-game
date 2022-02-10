@@ -62,7 +62,7 @@ li {
 }
 
 li:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.26);
 }
 li button {
     appearance: none;
