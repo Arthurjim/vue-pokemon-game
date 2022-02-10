@@ -1,12 +1,13 @@
 <template>
     <h1 v-if="!pokemon">Buscando pókemon...</h1>
    <div v-else>
-      <h2>¿Quien es este pókemon?</h2>
+      <h2 class="title">¿Quien es este pókemon?</h2>
      <PokemonPicture
         :show-pokemon="showPokemon"
         :pokemon-id="pokemon.id" />
       <PokemonOptions
         :pokemons="pokemonsArr"
+        :pokemon-id="pokemonId"
         @selection="checkAnswer" />
       
       <template v-if="showAnswer" >
@@ -30,7 +31,8 @@ export default {
             pokemon: null,
             showPokemon:false,
             showAnswer:false,
-            message:''
+            message:'',
+            pokemonId:0
         };
     },
     components: {
@@ -49,10 +51,12 @@ export default {
             this.showPokemon = true
             this.message = `Correcto, ${this.pokemon.name}`
             this.showAnswer = true
+            this.pokemonId = id
           }else{
             this.message = `Oops, era ${this.pokemon.name}`
             this.showPokemon = true
             this.showAnswer = true
+             this.pokemonId = id
 
           }
         },
@@ -61,7 +65,7 @@ export default {
         this.showPokemon=false;
         this.pokemon=null;
         this.pokemonsArr =[]
-
+        this.pokemonId = null
         this.mixmethod();
         }
     },
@@ -80,4 +84,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+  .title{
+    color: rgb(255, 238, 0);
+   text-shadow: 0px 2px 5px rgb(3, 3, 216);
+   font-size: 40px;
+   font-family: 'Supermercado One', cursive;
+  }
+</style>
