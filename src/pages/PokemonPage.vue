@@ -1,21 +1,19 @@
 <template>
     <h1 v-if="!pokemon">Buscando pókemon...</h1>
-   <div v-else>
-      <h2 class="title">¿Quien es este pókemon?</h2>
-     <PokemonPicture
-        :show-pokemon="showPokemon"
-        :pokemon-id="pokemon.id" />
-      <PokemonOptions
-        :pokemons="pokemonsArr"
-        :pokemon-id="pokemonId"
-        @selection="checkAnswer" />
-      
-      <template v-if="showAnswer" >
-          <h2>{{message}}</h2>
-          <button @click="newGame">Nuevo Juego</button>
-      </template>
+    <div v-else>
+        <h2 class="title">¿Quién es este pókemon?</h2>
+        <PokemonPicture :show-pokemon="showPokemon" :pokemon-id="pokemon.id" />
+        <PokemonOptions
+            :pokemons="pokemonsArr"
+            :pokemon-id="pokemonId"
+            @selection="checkAnswer"
+        />
 
-   </div>
+        <template v-if="showAnswer">
+            <h2 class="message">{{ message }}</h2>
+            <button @click="newGame">Nuevo Juego</button>
+        </template>
+    </div>
 </template>
 
 <script>
@@ -29,10 +27,10 @@ export default {
         return {
             pokemonsArr: [],
             pokemon: null,
-            showPokemon:false,
-            showAnswer:false,
-            message:'',
-            pokemonId:0
+            showPokemon: false,
+            showAnswer: false,
+            message: "",
+            pokemonId: 0,
         };
     },
     components: {
@@ -42,32 +40,31 @@ export default {
     methods: {
         async mixmethod() {
             this.pokemonsArr = await getPokemonOptions();
-            const rndInt = Math.floor(Math.random() * 4)
-            this.pokemon = this.pokemonsArr[rndInt]
+            const rndInt = Math.floor(Math.random() * 4);
+            this.pokemon = this.pokemonsArr[rndInt];
         },
-        checkAnswer(id){
-          // console.log(numero)
-          if( this.pokemon.id == id){
-            this.showPokemon = true
-            this.message = `Correcto, ${this.pokemon.name}`
-            this.showAnswer = true
-            this.pokemonId = id
-          }else{
-            this.message = `Oops, era ${this.pokemon.name}`
-            this.showPokemon = true
-            this.showAnswer = true
-             this.pokemonId = id
-
-          }
+        checkAnswer(id) {
+            // console.log(numero)
+            if (this.pokemon.id == id) {
+                this.showPokemon = true;
+                this.message = `Correcto, ${this.pokemon.name}`;
+                this.showAnswer = true;
+                this.pokemonId = id;
+            } else {
+                this.message = `Oops, era ${this.pokemon.name}`;
+                this.showPokemon = true;
+                this.showAnswer = true;
+                this.pokemonId = id;
+            }
         },
-        newGame(){
-        this.showAnswer = false;
-        this.showPokemon=false;
-        this.pokemon=null;
-        this.pokemonsArr =[]
-        this.pokemonId = null
-        this.mixmethod();
-        }
+        newGame() {
+            this.showAnswer = false;
+            this.showPokemon = false;
+            this.pokemon = null;
+            this.pokemonsArr = [];
+            this.pokemonId = null;
+            this.mixmethod();
+        },
     },
     mounted() {
         this.mixmethod();
@@ -85,10 +82,23 @@ export default {
 </script>
 
 <style scoped>
-  .title{
-    color: rgb(255, 238, 0);
-   text-shadow: 0px 2px 5px rgb(3, 3, 216);
-   font-size: 40px;
-   font-family: 'Supermercado One', cursive;
-  }
+    .title {
+        color: rgb(255, 238, 0);
+        text-shadow: 0px 2px 5px rgb(3, 3, 216);
+        font-size: 40px;
+        font-family: "Supermercado One", cursive;
+        letter-spacing: 2px;
+    }
+.message{
+    background: rgba(255, 238, 0, 0.527);;
+    border-radius: 5px;
+    color: rgb(15, 15, 15);
+    font-family: "Supermercado One", cursive;
+    font-size: 30px;
+    margin: auto;
+    padding: 25px;
+    text-align: center;
+    width: 300px;
+
+}
 </style>
