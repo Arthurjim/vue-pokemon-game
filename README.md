@@ -1,4 +1,5 @@
-# 04-pokemon-game
+POKEMON APP
+
 <img src="https://i.ibb.co/wsyMtn5/pokemon.png" alt="pokemon" border="0">
 
 ## Project setup
