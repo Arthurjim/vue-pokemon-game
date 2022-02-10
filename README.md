@@ -1,4 +1,4 @@
-# 04-pockemon-game
+# 04-pokemon-game
 <img src="https://i.ibb.co/wsyMtn5/pokemon.png" alt="pokemon" border="0">
 
 ## Project setup
