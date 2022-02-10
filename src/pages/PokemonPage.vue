@@ -1,7 +1,7 @@
 <template>
     <h1 v-if="!pokemon">Buscando pókemon...</h1>
     <div v-else>
-        <h2 class="title">¿Quién es este pókemon?</h2>
+        <h2 class="title">¿Quién es ese pókemon?</h2>
         <PokemonPicture :show-pokemon="showPokemon" :pokemon-id="pokemon.id" />
         <PokemonOptions
             :pokemons="pokemonsArr"
