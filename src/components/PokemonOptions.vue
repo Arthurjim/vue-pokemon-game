@@ -5,6 +5,7 @@
                 <button
                     :disabled="disbaleButtons(pokemon.id)"
                     @click="$emit('selection', pokemon.id)"
+                    :class="{'btn_disabled' : disbaleButtons(pokemon.id)}"
                 >
                     {{ pokemon.name }}
                 </button>
@@ -15,6 +16,7 @@
 
 <script>
 export default {
+    
     props: {
         pokemons: {
             type: Array,
@@ -75,6 +77,10 @@ li button {
     letter-spacing: 2px;
     text-shadow: 0px 2px 5px rgb(3, 3, 216);
     width: 100%;
+}
+.btn_disabled{
+    opacity: .3;
+
 }
 
 .options-container {
