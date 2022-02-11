@@ -5,7 +5,8 @@
         <PokemonPicture :show-pokemon="showPokemon" :pokemon-id="pokemon.id" />
         <PokemonOptions
             :pokemons="pokemonsArr"
-            :pokemon-id="pokemonId"
+            :pokemon-id="pokemon.id"
+            :pokemon-selected="pokemonSelected"
             @selection="checkAnswer"
         />
 
@@ -30,7 +31,7 @@ export default {
             showPokemon: false,
             showAnswer: false,
             message: "",
-            pokemonId: 0,
+            pokemonSelected:null
         };
     },
     components: {
@@ -45,25 +46,30 @@ export default {
         },
         checkAnswer(id) {
             // console.log(numero)
+            
             if (this.pokemon.id == id) {
                 this.showPokemon = true;
                 this.message = `Correcto, ${this.pokemon.name}`;
                 this.showAnswer = true;
-                this.pokemonId = id;
+
             } else {
                 this.message = `Oops, era ${this.pokemon.name}`;
                 this.showPokemon = true;
                 this.showAnswer = true;
-                this.pokemonId = id;
             }
+            this.pokemonSelected=id;
+
+
         },
         newGame() {
             this.showAnswer = false;
             this.showPokemon = false;
             this.pokemon = null;
             this.pokemonsArr = [];
-            this.pokemonId = null;
+            this.correctPokemon = [];
             this.mixmethod();
+            this.pokemonSelected=null;
+
         },
     },
     mounted() {
@@ -82,6 +88,9 @@ export default {
 </script>
 
 <style scoped>
+    template{
+        background: blue;
+    }
     .title {
         color: rgb(255, 238, 0);
         text-shadow: 0px 2px 5px rgb(3, 3, 216);
