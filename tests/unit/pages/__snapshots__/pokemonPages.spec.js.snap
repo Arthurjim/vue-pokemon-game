@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokemon pages Debe de hacer match con el snaptchott 1`] = `<h1>Buscando pókemon...</h1>`;

@@ -37,7 +37,6 @@ export default {
         },
         pokemonId: {
             type: Number,
-            required: true,
         },
     },
     methods: {

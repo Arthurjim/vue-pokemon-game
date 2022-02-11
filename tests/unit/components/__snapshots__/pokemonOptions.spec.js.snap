@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en Componente Debe hacer match con el snaptshot 1`] = `
+<div class="options-container">
+  <ul>
+    <li><button class="">
+        <!--v-if--> bulbasaur
+        <!--v-if-->
+      </button></li>
+    <li><button class="">
+        <!--v-if--> ivysaur
+        <!--v-if-->
+      </button></li>
+    <li><button class="">
+        <!--v-if--> venusaur
+        <!--v-if-->
+      </button></li>
+    <li><button class="">
+        <!--v-if--> charmander
+        <!--v-if-->
+      </button></li>
+  </ul>
+</div>
+`;
