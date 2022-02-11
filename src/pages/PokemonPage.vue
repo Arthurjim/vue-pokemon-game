@@ -59,7 +59,7 @@ export default {
             }
             this.pokemonSelected=id;
 
-
+            console.log('hola')
         },
         newGame() {
             this.showAnswer = false;

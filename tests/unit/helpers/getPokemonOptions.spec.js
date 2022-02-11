@@ -1,6 +1,6 @@
 import getPokemonOptions, {
     getPokemons,
-    getPokemnosNames,
+    getPokemnosNames as getPokemonNames,
 } from "../../../src/helpers/getPokemonOptions";
 
 describe("Pruebas en getPokemonOptions", () => {
@@ -16,7 +16,7 @@ describe("Pruebas en getPokemonOptions", () => {
             { name: "venusaur", id: 3 },
             { name: "charmander", id: 4 },
         ];
-        const pokemonss = await getPokemnosNames([1, 2, 3, 4]);
+        const pokemonss = await getPokemonNames([1, 2, 3, 4]);
         console.log(pokemonss)
         expect(pokemonss).toEqual(firstPokemons);
     });
